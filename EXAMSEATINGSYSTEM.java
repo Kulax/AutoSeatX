@@ -127,17 +127,10 @@ public class EXAMSEATINGSYSTEM extends Application {
 
             seatingArrangement = new HashMap<>();
             for (Student student : students) {
-                Course course = new Course(student.getCourse(), 0); // You may need to adjust this if you have course-specific data
+                Course course = new Course(student.getCourse(), 0); 
                 seatingArrangement.computeIfAbsent(course, k -> new ArrayList<>()).add(student);
             }
             EXAMSEATINGSYSTEM examSeatingSystem = new EXAMSEATINGSYSTEM(seatingArrangement);
-
-            // Now seatingArrangement contains the course-wise seating arrangement
-            // Pass this seating arrangement to your JavaFX application
-            EXAMSEATINGSYSTEM seatingSystem = new EXAMSEATINGSYSTEM(seatingArrangement);
-            seatingSystem.launchApp();
-
-
 
         } catch (IOException e) {
             e.printStackTrace();
